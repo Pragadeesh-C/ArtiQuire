@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    color: #000;
+    background-color: #FAFBFF;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBg{
+    height: 800px;
+    width: 1000px;
+}
