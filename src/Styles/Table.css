@@ -1,0 +1,66 @@
+.dashboard {
+  background-color: #fafafa;
+  overflow: auto;
+  width: 100%;
+  font-size: 20px;
+  margin-left: 15%;
+  flex: 1;
+  /* position: absolute; */
+}
+
+.dashboard .head {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard .head p {
+  padding-top: 20px;
+  padding-left: 50px;
+  color: #03314b;
+  text-decoration: underline;
+}
+
+.dashboard .head button {
+  margin-top: 20px;
+  height: fit-content;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  background-color: #27dec0;
+  color: #fff;
+}
+
+.dashboard .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.dashboard .dataGrid {
+  width: 100%;
+  padding: 50px;
+}
+
+.dashboard .button {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dashboard .button button {
+  width: 15%;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  background-color: #27dec0;
+  color: #fff;
+}
