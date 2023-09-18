@@ -17,6 +17,7 @@ import { CgProfile } from "react-icons/cg";
 import "../../Styles/Navbar.css";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { HiOutlineBuildingStorefront } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { collapseSidebar, toggleSidebar, collapsed, toggled, broken, rtl } =
@@ -70,6 +71,7 @@ const Navbar = () => {
               rootStyles={{ color: "#9197B3" }}
               className="submenu"
               icon={<MdOutlineDashboard size={20} color="#9197B3" />}
+              component={<Link to="/dashboard" />}
             >
               Dashboard
             </MenuItem>
@@ -79,8 +81,10 @@ const Navbar = () => {
               icon={<HiOutlineBuildingStorefront size={20} color="#9197B3" />}
               label="Vendors"
             >
-              <MenuItem color="black">List</MenuItem>
-              <MenuItem>Orders</MenuItem>
+              <MenuItem color="black" component={<Link to="/vendorlist" />}>
+                List
+              </MenuItem>
+              <MenuItem component={<Link to="/vendororders" />}>Orders</MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -88,7 +92,7 @@ const Navbar = () => {
               icon={<BsMinecartLoaded size={20} color="#9197B3" />}
               label="Suppliers"
             >
-              <MenuItem>List</MenuItem>
+              <MenuItem component={<Link to="/supplierlist"/>}>List</MenuItem>
               <MenuItem>Orders</MenuItem>
             </SubMenu>
             <SubMenu
@@ -97,8 +101,8 @@ const Navbar = () => {
               icon={<VscTools size={20} color="#9197B3" />}
               label="Manufacturer"
             >
-              <MenuItem>List</MenuItem>
-              <MenuItem>Orders</MenuItem>
+              <MenuItem component={<Link to="/manufacturerlist" />}>List</MenuItem>
+              <MenuItem component={<Link to="/manufacturerorders" />}>Orders</MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -106,8 +110,8 @@ const Navbar = () => {
               icon={<AiOutlineBank size={20} color="#9197B3" />}
               label="Finance"
             >
-              <MenuItem>List</MenuItem>
-              <MenuItem>Orders</MenuItem>
+              <MenuItem component={<Link to="/financelist" />}>List</MenuItem>
+              <MenuItem component={<Link to="/financeorder" />}>Orders</MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -115,8 +119,8 @@ const Navbar = () => {
               icon={<FiTruck size={20} color="#9197B3" />}
               label="Logistics"
             >
-              <MenuItem>List</MenuItem>
-              <MenuItem>Orders</MenuItem>
+              <MenuItem component={<Link to="/logisticslist" />}>List</MenuItem>
+              <MenuItem component={<Link to="/logisticsorders" />}>Orders</MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -124,8 +128,8 @@ const Navbar = () => {
               icon={<FiBox size={20} color="#9197B3" />}
               label="Inventory Management"
             >
-              <MenuItem>List</MenuItem>
-              <MenuItem>Orders</MenuItem>
+              <MenuItem component={<Link to="/inventorylist" />}>List</MenuItem>
+              <MenuItem component={<Link to="/inventoryorders" />}>Orders</MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -133,8 +137,8 @@ const Navbar = () => {
               icon={<TbTruckReturn size={20} color="#9197B3" />}
               label="Returns"
             >
-              <MenuItem>List</MenuItem>
-              <MenuItem>Orders</MenuItem>
+              <MenuItem component={<Link to="/returnlist" />}>List</MenuItem>
+              <MenuItem component={<Link to="/returnorders" />}>Orders</MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -142,8 +146,8 @@ const Navbar = () => {
               icon={<LiaWalletSolid size={20} color="#9197B3" />}
               label="Income"
             >
-              <MenuItem>List</MenuItem>
-              <MenuItem>Orders</MenuItem>
+              <MenuItem component={<Link to="/incomelist" />}>List</MenuItem>
+              <MenuItem component={<Link to="/incomeorders" />}>Orders</MenuItem>
             </SubMenu>
             <MenuItem
               className="submenu"

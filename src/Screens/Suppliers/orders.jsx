@@ -3,7 +3,7 @@ import '../../Styles/Dashboard.css'
 import Table from '../../components/Table'
 import Navbar from '../../components/Navbar'
 
-const Orders = () => {
+const SuppliersOrders = () => {
   return (
  
     <Table title={'Orders'} status={'Current Orders'} job={'SupplierName'} product={"Material"} details={'Company'} credentials={'Email'} Location={'Location'}/>
@@ -11,4 +11,4 @@ const Orders = () => {
   )
 }
 
-export default Orders
+export default SuppliersOrders
