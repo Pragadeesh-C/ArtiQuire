@@ -4,22 +4,22 @@ import "ag-grid-community/styles/ag-grid.css";
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import "../../Styles/Table.css";
 
-function Table() {
+function Table({title,status,job,product}) {
   const columnDefs = [
-    { field: "VendorName", cellStyle: { fontSize: "11px" ,color:'black',  fontFamily: "Poppins, sans-serif"},cellClass:'suppress-movable-col',suppressMovable:true },
-    { field: "Product", cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins, sans-serif" },cellClass:'suppress-movable-col',suppressMovable:true },
-    { field: "PhoneNumber", cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins, sans-serif" },cellClass:'suppress-movable-col',suppressMovable:true },
-    { field: "Email", cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins, sans-serif" },cellClass:'suppress-movable-col',suppressMovable:true },
-    { field: "Location", cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins, sans-serif" },cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: job, cellStyle: { fontSize: "11px" ,color:'black',  fontFamily: "Poppins"},cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: product, cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: "PhoneNumber", cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: "Email", cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: "Location", cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
     {
       field: "Status",
       cellStyle: function (params) {
         if (params.value === "Completed") {
-          return { color: "#16C098", fontSize: "11px", fontFamily: "Poppins, sans-serif"};
+          return { color: "#16C098", fontSize: "11px", fontFamily: "Poppins"};
         } else if (params.value === "In Progress") {
-          return { color: "orange", fontSize: "11px", fontFamily: "Poppins, sans-serif" };
+          return { color: "orange", fontSize: "11px", fontFamily: "Poppins" };
         } else if (params.value === "Pending") {
-          return { color: "red", fontSize: "11px", fontFamily: "Poppins, sans-serif"  };
+          return { color: "red", fontSize: "11px", fontFamily: "Poppins"  };
         }
         return null;
       },cellClass:'suppress-movable-col',suppressMovable:true
@@ -69,10 +69,10 @@ function Table() {
         <div className="flex-row1">
           <div  className="flex-column1">
             <div className="shipments-container">
-              <h3 className="shipments-heading">Shipments</h3>
+              <h3 className="shipments-heading">{title}</h3>
             </div>
             <div className="active-shipments">
-              <h5 className="active-shipments-heading"> Active Shipments </h5>
+              <h5 className="active-shipments-heading"> {status}</h5>
             </div>
           </div>
 
