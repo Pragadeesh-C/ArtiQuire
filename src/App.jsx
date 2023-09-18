@@ -7,6 +7,7 @@ import Orders from "./Screens/Orders";
 import Suppliers from "./Screens/Suppliers";
 import Logistics from "./Screens/Logistics";
 import Manufacturers from "./Screens/Manufacturers";
+import Register from "./Screens/Register";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
