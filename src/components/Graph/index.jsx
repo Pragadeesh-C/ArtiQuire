@@ -68,7 +68,7 @@ function SplineChart() {
   };
 
   return (
-    <div >
+    <div style={{marginLeft:'15%'}}>
       <h1>.............................................................................</h1>
       <CanvasJSChart  options={options} />
     </div>

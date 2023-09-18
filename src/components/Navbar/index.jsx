@@ -34,12 +34,12 @@ const Navbar = () => {
   };
   const [isVisible, setIsVisible] = useState(true);
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (location.pathname === "/" || location.pathname === "/register") {
       setIsVisible(false);
     } else {
       setIsVisible(true);
     }
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>
@@ -84,7 +84,9 @@ const Navbar = () => {
               <MenuItem color="black" component={<Link to="/vendorlist" />}>
                 List
               </MenuItem>
-              <MenuItem component={<Link to="/vendororders" />}>Orders</MenuItem>
+              <MenuItem component={<Link to="/vendororders" />}>
+                Orders
+              </MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -92,7 +94,7 @@ const Navbar = () => {
               icon={<BsMinecartLoaded size={20} color="#9197B3" />}
               label="Suppliers"
             >
-              <MenuItem component={<Link to="/supplierlist"/>}>List</MenuItem>
+              <MenuItem component={<Link to="/supplierlist" />}>List</MenuItem>
               <MenuItem>Orders</MenuItem>
             </SubMenu>
             <SubMenu
@@ -101,8 +103,12 @@ const Navbar = () => {
               icon={<VscTools size={20} color="#9197B3" />}
               label="Manufacturer"
             >
-              <MenuItem component={<Link to="/manufacturerlist" />}>List</MenuItem>
-              <MenuItem component={<Link to="/manufacturerorders" />}>Orders</MenuItem>
+              <MenuItem component={<Link to="/manufacturerlist" />}>
+                List
+              </MenuItem>
+              <MenuItem component={<Link to="/manufacturerorders" />}>
+                Orders
+              </MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -111,7 +117,9 @@ const Navbar = () => {
               label="Finance"
             >
               <MenuItem component={<Link to="/financelist" />}>List</MenuItem>
-              <MenuItem component={<Link to="/financeorder" />}>Orders</MenuItem>
+              <MenuItem component={<Link to="/financeorder" />}>
+                Orders
+              </MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -120,7 +128,9 @@ const Navbar = () => {
               label="Logistics"
             >
               <MenuItem component={<Link to="/logisticslist" />}>List</MenuItem>
-              <MenuItem component={<Link to="/logisticsorders" />}>Orders</MenuItem>
+              <MenuItem component={<Link to="/logisticsorders" />}>
+                Orders
+              </MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -129,7 +139,9 @@ const Navbar = () => {
               label="Inventory Management"
             >
               <MenuItem component={<Link to="/inventorylist" />}>List</MenuItem>
-              <MenuItem component={<Link to="/inventoryorders" />}>Orders</MenuItem>
+              <MenuItem component={<Link to="/inventoryorders" />}>
+                Orders
+              </MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -138,7 +150,9 @@ const Navbar = () => {
               label="Returns"
             >
               <MenuItem component={<Link to="/returnlist" />}>List</MenuItem>
-              <MenuItem component={<Link to="/returnorders" />}>Orders</MenuItem>
+              <MenuItem component={<Link to="/returnorders" />}>
+                Orders
+              </MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
@@ -147,7 +161,9 @@ const Navbar = () => {
               label="Income"
             >
               <MenuItem component={<Link to="/incomelist" />}>List</MenuItem>
-              <MenuItem component={<Link to="/incomeorders" />}>Orders</MenuItem>
+              <MenuItem component={<Link to="/incomeorders" />}>
+                Orders
+              </MenuItem>
             </SubMenu>
             <MenuItem
               className="submenu"

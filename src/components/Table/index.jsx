@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { DataGrid } from "@mui/x-data-grid"; 
+import { DataGrid } from "@mui/x-data-grid";
 
 import "../../Styles/Table.css";
 
-function Table({title,status,job,product,details,credentials,Location}) {
 const columns = [
-  { field: job, headerName: "Vendor Name", flex: 1 },
-  { field: product, headerName: "Product", flex: 1 },
-  { field: details, headerName: "Phone Number", flex: 1 },
-  { field: credentials, headerName: "Email", flex: 1 },
-  { field: Location, headerName: "Location", flex: 1 },
+  { field: "VendorName", headerName: "Vendor Name", flex: 1 },
+  { field: "Product", headerName: "Product", flex: 1 },
+  { field: "PhoneNumber", headerName: "Phone Number", flex: 1 },
+  { field: "Email", headerName: "Email", flex: 1 },
+  { field: "Location", headerName: "Location", flex: 1 },
   {
     field: "Status",
     headerName: "Status",
@@ -19,7 +18,6 @@ const columns = [
       let backgroundColor = "";
       if (status === "Completed") {
         backgroundColor = "#00B087";
-        
       } else if (status === "In Progress") {
         backgroundColor = "orange";
       } else if (status === "Pending") {
@@ -74,7 +72,7 @@ const rows = [
   },
 ];
 
-
+function Table() {
   const [selectedVendor, setSelectedVendor] = useState("");
   const [rowData, setRowData] = useState([]);
 
@@ -91,10 +89,10 @@ const rows = [
         <div className="flex-row1">
           <div className="flex-column1">
             <div className="shipments-container">
-              <h3 className="shipments-heading">{title}</h3>
+              <h3 className="shipments-heading">Shipments</h3>
             </div>
             <div className="active-shipments">
-              <h5 className="active-shipments-heading"> {status} </h5>
+              <h5 className="active-shipments-heading"> Active Shipments </h5>
             </div>
           </div>
 
@@ -128,7 +126,7 @@ const rows = [
         <div
           style={{
             width: "100%",
-            height: "90%",
+            height: "80%",
             paddingTop: "3%",
             paddingLeft: "2%",
             paddingRight: "3%",

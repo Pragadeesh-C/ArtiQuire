@@ -1,16 +1,15 @@
 .container {
-  display: "flex";
-  background: "#F8F9FE";
-  justify-content: "center";
-  align-items: "center";
-  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
 }
 
 .custom-container {
   border: 0.5px solid black;
   border-radius: 20px;
   width: 80%;
-  height: 400px;
+  height: 80%;
   background-color: white;
   
 }
@@ -33,10 +32,12 @@
   font-family: "Poppins";
 }
 .active-shipments {
-  font-size: 11px;
+  font-size: 16px;
   color: #16C098;
   margin-left: 30%;
   width: 90px;
+  font-family: 'Poppins';
+  letter-spacing: 0.5px;
 }
 .shipments-heading {
   font-family: "Poppins";
@@ -75,7 +76,9 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 70px;
+  height: 40px;
+  width: 50%;
+  margin-left: 10px;
 }
 
 .custom-button:disabled {
