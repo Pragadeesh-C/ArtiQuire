@@ -11,6 +11,7 @@ import SuppliersList from "./Screens/Suppliers/list";
 import SuppliersOrders from "./Screens/Suppliers/orders";
 import ManufacturersList from "./Screens/Manufacturers";
 import LogisticsList from "./Screens/Logistics";
+import Register from "./Screens/Register";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/supplierorders" element={<SuppliersOrders />} />

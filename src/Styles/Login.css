@@ -138,7 +138,6 @@
 }
 
 .login .loginInputs .forgotPassword {
-  margin-left: 24%;
   text-decoration: none;
   color: #03314b;
   font-family: 'Poppins';
@@ -170,6 +169,8 @@
   }
   .login .loginInputs .checkboxDiv {
     font-size: 14px;
+    display: flex;
+    left:10px
   }
   .login .loginInputs .forgotPassword {
     margin-left: 3em;
