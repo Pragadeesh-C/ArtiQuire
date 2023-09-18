@@ -4,13 +4,13 @@ import "ag-grid-community/styles/ag-grid.css";
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import "../../Styles/Table.css";
 
-function Table({title,status,job,product}) {
+function Table({title,status,job,product,details,credentials,Location}) {
   const columnDefs = [
     { field: job, cellStyle: { fontSize: "11px" ,color:'black',  fontFamily: "Poppins"},cellClass:'suppress-movable-col',suppressMovable:true },
     { field: product, cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
-    { field: "PhoneNumber", cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
-    { field: "Email", cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
-    { field: "Location", cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: details, cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: credentials, cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: Location, cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins" },cellClass:'suppress-movable-col',suppressMovable:true },
     {
       field: "Status",
       cellStyle: function (params) {

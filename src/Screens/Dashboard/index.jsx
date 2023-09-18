@@ -6,7 +6,7 @@ import Navbar from '../../components/Navbar'
 const Dashboard = () => {
   return (
  
-    <Table title={'Shipments'} status={'Active Shipments'} job={'VendorName'} product={"Product"}/>
+    <Table title={'Shipments'} status={'Active Shipments'} job={'VendorName'} product={"Product"} details={'PhoneNumber'} credentials={'Email'} Location={'Location'}/>
 
   )
 }
