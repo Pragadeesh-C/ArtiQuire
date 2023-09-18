@@ -2,16 +2,20 @@ import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./Screens/Login/Login";
 import Table from "./components/Table";
+import Table1 from "./components/Table1";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <div>
-      <Router>
+      {/* <Router>
         <Routes>
-          <Route path="/" element={<Table />} />
+          <Route path="/" element={<Login />} />
         </Routes>
-      </Router>
-      
+      </Router> */}
+      {/* <Table/> */}
+      <Table1/>
+      {/* <Navbar/> */}
     </div>
   );
 };
