@@ -1,78 +1,145 @@
-import React, { useState, useRef } from "react";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import "../../Styles/Table.css";
-const Table = () => {
-  const gridRef = useRef();
-  const [rows, setRows] = useState([
-    {
-      id: 1,
-      Sno: 1,
-      date: "Sat,08/07/2023",
-      name: "Iron",
-      quantity: "12 KG",
-      price: 2000,
-    },
-    {
-      id: 2,
-      Sno: 2,
-      date: "Sat,08/07/2023",
-      name: "Stainless Steel",
-      quantity: "12 KG",
-      price: 1000,
-    },
-    {
-      id: 3,
-      Sno: 3,
-      date: "Sat,08/07/2023",
-      name: "Aluminium",
-      quantity: "12 KG",
-      price: 4000,
-    },
-    {
-      id: 4,
-      Sno: 4,
-      date: "Sat,08/07/2023",
-      name: "test",
-      quantity: "12 KG",
-      price: 4000,
-    },
-  ]);
+import React, { useState } from "react";
+import { DataGrid } from "@mui/x-data-grid"; 
 
-  const [columns, setColumns] = useState([
-    { field: "Sno", flex: 1 },
-    { field: "date", flex: 1 },
-    { field: "name", flex: 1 },
-    { field: "quantity", flex: 1 },
-    { field: "price", flex: 1 },
-  ]);
+import "../../Styles/Table.css";
+
+function Table({title,status,job,product,details,credentials,Location}) {
+const columns = [
+  { field: job, headerName: "Vendor Name", flex: 1 },
+  { field: product, headerName: "Product", flex: 1 },
+  { field: details, headerName: "Phone Number", flex: 1 },
+  { field: credentials, headerName: "Email", flex: 1 },
+  { field: Location, headerName: "Location", flex: 1 },
+  {
+    field: "Status",
+    headerName: "Status",
+    flex: 1,
+    renderCell: (params) => {
+      const status = params.value;
+      let backgroundColor = "";
+      if (status === "Completed") {
+        backgroundColor = "#00B087";
+        
+      } else if (status === "In Progress") {
+        backgroundColor = "orange";
+      } else if (status === "Pending") {
+        backgroundColor = "#DF0404";
+      }
+      return (
+        <div
+          style={{
+            backgroundColor,
+            width: "60%",
+            height: "70%",
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {status}
+        </div>
+      );
+    },
+  },
+];
+
+const rows = [
+  {
+    id: 1,
+    VendorName: "Jane Cooper",
+    Product: "Diary",
+    PhoneNumber: "(225) 555-0118",
+    Email: "jane@microsoft.com",
+    Location: "Jammu",
+    Status: "Completed",
+  },
+  {
+    id: 2,
+    VendorName: "John Doe",
+    Product: "Notebook",
+    PhoneNumber: "(123) 456-7890",
+    Email: "john@gmail.com",
+    Location: "New York",
+    Status: "In Progress",
+  },
+  {
+    id: 3,
+    VendorName: "Alice Johnson",
+    Product: "Calendar",
+    PhoneNumber: "(555) 123-4567",
+    Email: "alice@yahoo.com",
+    Location: "Los Angeles",
+    Status: "Pending",
+  },
+];
+
+
+  const [selectedVendor, setSelectedVendor] = useState("");
+  const [rowData, setRowData] = useState([]);
+
+  const addVendor = () => {
+    const filteredData = rows.filter(
+      (row) => row.VendorName === selectedVendor
+    );
+    setRowData([...rowData, ...filteredData]);
+  };
 
   return (
-    <div className="dashboard">
-      <div className="head">
-        <p>Today (Sat,08/07/2023)</p>
-        <button>+ Add</button>
-      </div>
-      <div className="wrapper">
-        <div className="dataGrid">
-          <DataGrid
-            ref={gridRef}
-            slots={{ toolbar: GridToolbar }}
-            slotProps={{
-              toolbar: { csvOptions: { fileName: "08-07-2023" } },
-            }}
-            rows={rows}
-            columns={columns}
-            autoHeight={true}
-            autoPageSize={false}
-            autoWidth={true}
-          />
+    <div className="container">
+      <div className="custom-container">
+        <div className="flex-row1">
+          <div className="flex-column1">
+            <div className="shipments-container">
+              <h3 className="shipments-heading">{title}</h3>
+            </div>
+            <div className="active-shipments">
+              <h5 className="active-shipments-heading"> {status} </h5>
+            </div>
+          </div>
+
+          <div className="vendor-container">
+            <div className="vendor-label">
+              <select
+                id="vendorSelect"
+                className="vendorSelect"
+                value={selectedVendor}
+                onChange={(e) => setSelectedVendor(e.target.value)}
+              >
+                <option value="">Select Vendor</option>
+                {rows.map((vendor) => (
+                  <option key={vendor.id} value={vendor.VendorName}>
+                    {vendor.VendorName} - {vendor.Location}
+                  </option>
+                ))}
+              </select>
+
+              <button
+                className="custom-button"
+                onClick={addVendor}
+                disabled={!selectedVendor}
+              >
+                Add Vendor
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="button">
-          <button>Download</button>
+
+        <div
+          style={{
+            width: "100%",
+            height: "90%",
+            paddingTop: "3%",
+            paddingLeft: "2%",
+            paddingRight: "3%",
+            paddingBottom: "3%",
+          }}
+        >
+          <DataGrid rows={rowData} columns={columns} pageSize={5} />
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Table;

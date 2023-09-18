@@ -1,0 +1,165 @@
+.container {
+  color: #000;
+  background-color: #fafbff;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+
+
+.input-group {
+  margin-bottom: 20px;
+  width: 250px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4042E2;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 0px;
+  margin-top: 50px;
+}
+
+button:hover {
+  background-color: #0056b3;  
+}
+
+
+.col {
+  display: flex;
+  flex-direction: column;
+  margin-right: 60px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.regyracnt{
+  font-size: 15px;
+  margin: 5px 0; 
+
+}
+
+.welcome{
+  font-size: 30px;
+  margin: 5px 0; 
+
+}
+
+.line {
+  border: none;
+  border-top: 1px solid #ccc; 
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 50px;
+
+}
+
+.alredy {
+  text-align: center;
+  margin-top: 20px; 
+  font-size: 13px;
+}
+
+.btn{
+  justify-content: center;
+  align-items: center;
+}
+
+.artquire{
+    color: #ccc;
+}
+
+.p{
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width: 800px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .col {
+    margin-right: 0;
+  }
+
+  .form {
+    max-width: 100%; 
+  }
+
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .col {
+    margin-right: 0;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+
+
+  .input-group {
+    width: 100%;
+  }
+}

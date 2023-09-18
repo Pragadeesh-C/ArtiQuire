@@ -3,7 +3,7 @@ import "../../Styles/Login.css";
 import LoginImg from "../../assets/LoginBg.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -35,6 +35,8 @@ const Login = () => {
     <div className="login">
       <img src={LoginImg} alt="Login" />
       <div className="loginInputs">
+        <div className="header">Welcome Back!</div>
+        <div className="desc">Login to your account</div>
         <>
           {isCorrect ? <></> : <p className="err">Enter email and password</p>}
           {validEmail ? (
