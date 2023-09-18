@@ -1,83 +1,94 @@
-import { useNavigate, Link, useLocation } from "react-router-dom";
-import "../../Styles/Navbar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import {
-  faHouse,
-  faDownload,
-  faReceipt,
-  faSignOut,
-} from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+  Sidebar,
+  Menu,
+  MenuItem,
+  useProSidebar,
+  SubMenu,
+} from "react-pro-sidebar";
+import {BsMinecartLoaded} from 'react-icons/bs'
 
 const Navbar = () => {
-  const location = useLocation();
-  const [isActive, setIsActive] = useState(true);
-  const [active, setActive] = useState(0);
-  const [isLogged, setIsLogged] = useState(true);
-  const [isVisible, setIsVisible] = useState(true);
-  const navigate = useNavigate();
-
-
-  const logOut = async () => {
+  const { collapseSidebar, toggleSidebar, collapsed, toggled, broken, rtl } =
+    useProSidebar();
+  const toggle = () => {
+    toggleSidebar();
+    if (toggled) {
+      console.log(true);
+      collapseSidebar();
+    } else {
+      console.log(false);
+      collapseSidebar();
+    }
   };
+  const [isVisible, setIsVisible] = useState(true);
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  }, []);
 
   return (
     <>
       {isVisible && (
-        <nav className={`nav ${isActive ? "active" : ""}`}>
-          <div className={"burgerAct"} onClick={() => setIsActive(!isActive)}>
-            <div className="line1"></div>
-            <div className="line2"></div>
-            <div className="line3"></div>
-          </div>
-          <div className={`navBody ${isActive ? "active" : ""}`}>
-            {/* <img src="" alt="logo here" /> */}
-            <ul className="navlinks">
-              <li>
-                <Link
-                  className={`navlink ${active === 0 ? "active" : ""}`}
-                  onClick={() => setActive(0)}
-                  to="/dashboard"
-                >
-                  <FontAwesomeIcon className="navIcon" icon={faHouse} />{" "}
-                  {isActive ? <p>Dashboard</p> : <p></p>}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={`navlink ${active === 1 ? "active" : ""}`}
-                  onClick={() => setActive(1)}
-                  to="/add"
-                >
-                  <FontAwesomeIcon className="navIcon" icon={faDownload} />{" "}
-                  {isActive ? <p>Add new Stock</p> : <p></p>}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={`navlink ${active === 2 ? "active" : ""}`}
-                  onClick={() => setActive(2)}
-                  to="/report"
-                >
-                  <FontAwesomeIcon className="navIcon" icon={faReceipt} />
-                  {isActive ? <p>Report</p> : <p></p>}
-                </Link>
-              </li>
-              <li onClick={logOut}>
-                <Link
-                  className={`navlink ${active === 3 ? "active" : ""}`}
-                  onClick={() => setActive(3)}
-                >
-                  <FontAwesomeIcon className="navIcon" icon={faSignOut} />
-                  {isActive ? <p>Logout</p> : <p></p>}
-                </Link>
-              </li>
-              {/* <li>
-            <Link to="/settings" />
-          </li> */}
-            </ul>
-          </div>
-        </nav>
+        <Sidebar
+          backgroundColor="rgb(0, 249, 249)"
+          rtl={false}
+          style={{ height: "100vh", position: "absolute", left: 0 }}
+          breakPoint="sm"
+          transitionDuration={800}
+        >
+          <Menu>
+            <MenuItem
+              icon={<MenuOutlinedIcon />}
+              onClick={() => {
+                collapseSidebar();
+              }}
+              style={{ textAlign: "center" }}
+            >
+              {" "}
+              <h2>Dashboard</h2>
+            </MenuItem>
+            <MenuItem icon={<BsMinecartLoaded />}>Dashboard</MenuItem>
+            <SubMenu icon={<BsMinecartLoaded />} label="Vendors">
+              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
+              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            </SubMenu>
+            <SubMenu icon={<BsMinecartLoaded />} label="Suppliers">
+              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
+              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            </SubMenu>
+            <SubMenu icon={<BsMinecartLoaded />} label="Manufacturer">
+              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
+              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            </SubMenu>
+            <SubMenu icon={<BsMinecartLoaded />} label="Finance">
+              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
+              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            </SubMenu>
+            <SubMenu icon={<BsMinecartLoaded />} label="Logistics">
+              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
+              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            </SubMenu>
+            <SubMenu icon={<BsMinecartLoaded />} label="Inventory Management">
+              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
+              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            </SubMenu>
+            <SubMenu icon={<BsMinecartLoaded />} label="Returns">
+              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
+              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            </SubMenu>
+            <SubMenu icon={<BsMinecartLoaded />} label="Income">
+              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
+              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            </SubMenu>
+            <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
+            <MenuItem icon={<ReceiptOutlinedIcon />}>Profile</MenuItem>
+          </Menu>
+        </Sidebar>
       )}
     </>
   );

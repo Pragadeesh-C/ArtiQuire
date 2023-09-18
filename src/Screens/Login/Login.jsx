@@ -35,6 +35,8 @@ const Login = () => {
     <div className="login">
       <img src={LoginImg} alt="Login" />
       <div className="loginInputs">
+        <div className="header">Welcome Back!</div>
+        <div className="desc">Login to your account</div>
         <>
           {isCorrect ? <></> : <p className="err">Enter email and password</p>}
           {validEmail ? (
