@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import {
   Sidebar,
   Menu,
@@ -7,7 +6,17 @@ import {
   useProSidebar,
   SubMenu,
 } from "react-pro-sidebar";
-import {BsMinecartLoaded} from 'react-icons/bs'
+import { BsMinecartLoaded } from "react-icons/bs";
+import { FiTruck, FiBox } from "react-icons/fi";
+import { AiOutlineBank } from "react-icons/ai";
+import { VscTools } from "react-icons/vsc";
+import { LiaWalletSolid } from "react-icons/lia";
+import { MdOutlineDashboard } from "react-icons/md";
+import { TbMessageReport, TbTruckReturn } from "react-icons/tb";
+import { CgProfile } from "react-icons/cg";
+import "../../Styles/Navbar.css";
+import { HiMenuAlt1 } from "react-icons/hi";
+import { HiOutlineBuildingStorefront } from "react-icons/hi2";
 
 const Navbar = () => {
   const { collapseSidebar, toggleSidebar, collapsed, toggled, broken, rtl } =
@@ -35,7 +44,7 @@ const Navbar = () => {
     <>
       {isVisible && (
         <Sidebar
-          backgroundColor="rgb(0, 249, 249)"
+          backgroundColor="#FFF"
           rtl={false}
           style={{ height: "100vh", position: "absolute", left: 0 }}
           breakPoint="sm"
@@ -43,50 +52,113 @@ const Navbar = () => {
         >
           <Menu>
             <MenuItem
-              icon={<MenuOutlinedIcon />}
+              icon={<HiMenuAlt1 />}
               onClick={() => {
                 collapseSidebar();
               }}
-              style={{ textAlign: "center" }}
+              style={{
+                textAlign: "center",
+                fontFamily: "Poppins",
+                fontWeight: "600",
+                fontSize: 20,
+              }}
             >
-              {" "}
-              <h2>Dashboard</h2>
+              {""}
+              ArtiQuire
             </MenuItem>
-            <MenuItem icon={<BsMinecartLoaded />}>Dashboard</MenuItem>
-            <SubMenu icon={<BsMinecartLoaded />} label="Vendors">
-              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
-              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            <MenuItem
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<MdOutlineDashboard size={20} color="#9197B3" />}
+            >
+              Dashboard
+            </MenuItem>
+            <SubMenu
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<HiOutlineBuildingStorefront size={20} color="#9197B3" />}
+              label="Vendors"
+            >
+              <MenuItem color="black">List</MenuItem>
+              <MenuItem>Orders</MenuItem>
             </SubMenu>
-            <SubMenu icon={<BsMinecartLoaded />} label="Suppliers">
-              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
-              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            <SubMenu
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<BsMinecartLoaded size={20} color="#9197B3" />}
+              label="Suppliers"
+            >
+              <MenuItem>List</MenuItem>
+              <MenuItem>Orders</MenuItem>
             </SubMenu>
-            <SubMenu icon={<BsMinecartLoaded />} label="Manufacturer">
-              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
-              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            <SubMenu
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<VscTools size={20} color="#9197B3" />}
+              label="Manufacturer"
+            >
+              <MenuItem>List</MenuItem>
+              <MenuItem>Orders</MenuItem>
             </SubMenu>
-            <SubMenu icon={<BsMinecartLoaded />} label="Finance">
-              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
-              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            <SubMenu
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<AiOutlineBank size={20} color="#9197B3" />}
+              label="Finance"
+            >
+              <MenuItem>List</MenuItem>
+              <MenuItem>Orders</MenuItem>
             </SubMenu>
-            <SubMenu icon={<BsMinecartLoaded />} label="Logistics">
-              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
-              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            <SubMenu
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<FiTruck size={20} color="#9197B3" />}
+              label="Logistics"
+            >
+              <MenuItem>List</MenuItem>
+              <MenuItem>Orders</MenuItem>
             </SubMenu>
-            <SubMenu icon={<BsMinecartLoaded />} label="Inventory Management">
-              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
-              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            <SubMenu
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<FiBox size={20} color="#9197B3" />}
+              label="Inventory Management"
+            >
+              <MenuItem>List</MenuItem>
+              <MenuItem>Orders</MenuItem>
             </SubMenu>
-            <SubMenu icon={<BsMinecartLoaded />} label="Returns">
-              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
-              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            <SubMenu
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<TbTruckReturn size={20} color="#9197B3" />}
+              label="Returns"
+            >
+              <MenuItem>List</MenuItem>
+              <MenuItem>Orders</MenuItem>
             </SubMenu>
-            <SubMenu icon={<BsMinecartLoaded />} label="Income">
-              <MenuItem icon={<BsMinecartLoaded />}>List</MenuItem>
-              <MenuItem icon={<BsMinecartLoaded />}>Orders</MenuItem>
+            <SubMenu
+              rootStyles={{ color: "#9197B3" }}
+              className="submenu"
+              icon={<LiaWalletSolid size={20} color="#9197B3" />}
+              label="Income"
+            >
+              <MenuItem>List</MenuItem>
+              <MenuItem>Orders</MenuItem>
             </SubMenu>
-            <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
-            <MenuItem icon={<ReceiptOutlinedIcon />}>Profile</MenuItem>
+            <MenuItem
+              className="submenu"
+              rootStyles={{ color: "#9197B3" }}
+              icon={<TbMessageReport size={20} color="#9197B3" />}
+            >
+              FAQ
+            </MenuItem>
+            <MenuItem
+              className="submenu"
+              rootStyles={{ color: "#9197B3" }}
+              icon={<CgProfile size={20} color="#9197B3" />}
+            >
+              Profile
+            </MenuItem>
           </Menu>
         </Sidebar>
       )}

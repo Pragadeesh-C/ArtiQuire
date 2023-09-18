@@ -6,7 +6,7 @@ import "../../Styles/Table.css";
 
 function Table() {
   const columnDefs = [
-    { field: "VendorName", cellStyle: { fontSize: "11px" ,color:'black',  fontFamily: "Poppins, sans-serif"},cellClass:'suppress-movable-col',suppressMovable:true },
+    { field: "Vendor Name", cellStyle: { fontSize: "11px" ,color:'black',  fontFamily: "Poppins, sans-serif"},cellClass:'suppress-movable-col',suppressMovable:true },
     { field: "Product", cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins, sans-serif" },cellClass:'suppress-movable-col',suppressMovable:true },
     { field: "PhoneNumber", cellStyle: { fontSize: "11px",color:'black', fontFamily: "Poppins, sans-serif" },cellClass:'suppress-movable-col',suppressMovable:true },
     { field: "Email", cellStyle: { fontSize: "11px", color:'black', fontFamily: "Poppins, sans-serif" },cellClass:'suppress-movable-col',suppressMovable:true },

@@ -31,7 +31,7 @@
 }
 
 .shipments-heading {
-  font-family: "Poppins" sans-serif;
+  font-family: "Poppins";
 }
 .active-shipments {
   font-size: 11px;
@@ -40,7 +40,7 @@
   width: 90px;
 }
 .shipments-heading {
-  font-family: "Poppins" sans-serif;
+  font-family: "Poppins";
 }
 .vendor-container {
   display: flex;
@@ -55,7 +55,7 @@
 }
 
 .vendor-select {
-  font-family: "Poppins" sans-serif;
+  font-family: "Poppins";
 }
 #vendorSelect {
   background-color: #f2f2f2;
@@ -64,7 +64,7 @@
   border-radius: 5px;
   width: 45%;
   /* height: 50%; */
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins",;
   font-size: 10px;
   color: #333;
 }

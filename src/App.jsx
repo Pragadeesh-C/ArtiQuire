@@ -7,7 +7,7 @@ import Dashboard from "./Screens/Dashboard";
 const App = () => {
   return (
     <Router>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
