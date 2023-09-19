@@ -39,7 +39,6 @@ const Navbar = () => {
     } else {
       setIsVisible(true);
     }
-    
   }, [location.pathname]);
 
   return (
