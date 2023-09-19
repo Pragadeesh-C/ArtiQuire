@@ -3,14 +3,13 @@
   background-color: #fafbff;
   justify-content: center;
   align-items: center;
-  align-items: center;
   display: flex;
   flex-direction: column;
   font-family: 'Poppins';
   letter-spacing: 0.5px;
   font-weight: 400;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .title {

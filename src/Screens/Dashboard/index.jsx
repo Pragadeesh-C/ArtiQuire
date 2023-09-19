@@ -40,8 +40,8 @@ const Dashboard = () => {
 
   return (
     <div className='dashboard'>
-      <SplineChart />
-      <ManufracturerOrder></ManufracturerOrder>
+    <SplineChart />
+    <Table title={'Shipments'} status={'Active Shipments'} job={'VendorName'} product={"Product"} details={'PhoneNumber'} credentials={'Email'} Location={'Location'}/>
     </div>
   );
 };
