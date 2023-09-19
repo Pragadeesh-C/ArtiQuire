@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../../Styles/Login.css";
-import LoginImg from "../../assets/LoginBg.png";
+import LoginImg from "../../assets/loginBg.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../utils/firebase";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 
@@ -15,7 +15,8 @@ const Login = () => {
   const [validEmail, setValidEmail] = useState(true);
   const [wrongPassword, setWrongPassword] = useState(false);
   const [noUser, setNoUser] = useState(false);
-
+  const navigate = useNavigate();
+  
   const loginAuth = async () => {
     signInWithEmailAndPassword(auth, email, password).then(
       (userCredentials) => {
