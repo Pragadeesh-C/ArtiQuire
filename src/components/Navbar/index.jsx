@@ -95,7 +95,7 @@ const Navbar = () => {
               label="Suppliers"
             >
               <MenuItem component={<Link to="/supplierlist" />}>List</MenuItem>
-              <MenuItem>Orders</MenuItem>
+              <MenuItem  component={<Link to="/supplierorders" />}>Orders</MenuItem>
             </SubMenu>
             <SubMenu
               rootStyles={{ color: "#9197B3" }}

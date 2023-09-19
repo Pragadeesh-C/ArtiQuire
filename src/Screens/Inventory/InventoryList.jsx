@@ -1,19 +1,3 @@
-// import React from 'react'
-// import '../../Styles/Dashboard.css'
-// import Table from '../../components/Table'
-// import Navbar from '../../components/Navbar'
-
-// const SuppliersOrders = () => {
-//   return (
- 
-//     <Table title={'Orders'} status={'Current Orders'} job={'SupplierName'} product={"Material"} details={'Company'} credentials={'Email'} Location={'Location'}/>
-//     // <p>tarun</p>
-//   )
-// }
-
-// export default SuppliersOrders
-
-
 import "../../Styles/Table.css";
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid"; 
@@ -23,44 +7,44 @@ import { DataGrid } from "@mui/x-data-grid";
 const columns = [
   { field: "SupplierName", headerName: "Supplier Name", flex: 1 },
   { field: "OrderNo", headerName: "Order No", flex: 1 },
-
-  { field: "Company", headerName: "Company", flex: 1 },
   { field: "Material", headerName: "Material", flex: 1 },
-  { field: "PhoneNumber", headerName: "PhoneNumber", flex: 1 },
-//   { field: "Email", headerName: "Email", flex: 1 },
+  { field: "Email", headerName: "Email", flex: 1 },
+  { field: "Company", headerName: "Company", flex: 1 },
   { field: "Location", headerName: "Location", flex: 1 },
-  {
-    field: "Status",
-    headerName: "Status",
-    flex: 1,
-    renderCell: (params) => {
-      const status = params.value;
-      let backgroundColor = "";
-      if (status === "Delivered") {
-        backgroundColor = "#00B087";
+
+//   { field: "PhoneNumber", headerName: "PhoneNumber", flex: 1 },
+//   {
+//     field: "Status",
+//     headerName: "Status",
+//     flex: 1,
+//     renderCell: (params) => {
+//       const status = params.value;
+//       let backgroundColor = "";
+//       if (status === "Delivered") {
+//         backgroundColor = "#00B087";
         
-      } else if (status === "In Progress") {
-        backgroundColor = "orange";
-      } else if (status === "Pending") {
-        backgroundColor = "#DF0404";
-      }
-      return (
-        <div
-          style={{
-            backgroundColor,
-            width: "60%",
-            height: "70%",
-            color: "white",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {status}
-        </div>
-      );
-    },
-  },
+//       } else if (status === "In Progress") {
+//         backgroundColor = "orange";
+//       } else if (status === "Pending") {
+//         backgroundColor = "#DF0404";
+//       }
+//       return (
+//         <div
+//           style={{
+//             backgroundColor,
+//             width: "60%",
+//             height: "70%",
+//             color: "white",
+//             display: "flex",
+//             justifyContent: "center",
+//             alignItems: "center",
+//           }}
+//         >
+//           {status}
+//         </div>
+//       );
+//     },
+//   },
 ];
 
 const rows = [
@@ -69,37 +53,37 @@ const rows = [
     SupplierName: "Jane Cooper",
     OrderNo: "(225)",
     Material: "Diary",
+    Email: "jane@microsoft.com",
     Company: "DiaryPro",
-    PhoneNumber: "(225) 555-0118",
-    // Email: "jane@microsoft.com",
     Location: "Jammu",
-    Status: "Delivered",
+    // PhoneNumber: "(225) 555-0118",
+    // Status: "Delivered",
   },
   {
     id: 2,
     SupplierName: "John Doe",
     OrderNo: "(123)",
     Material: "Notebook",
+    Email: "jane@microsoft.com",
     Company: "NotePro",
-    PhoneNumber: "(123) 456-7890",
-    // Email: "jane@microsoft.com",
     Location: "New York",
-    Status: "In Progress",
+    // PhoneNumber: "(123) 456-7890",
+    // Status: "In Progress",
   },
   {
     id: 3,
     SupplierName: "Alice Johnson",
     OrderNo: "(555)",
     Material: "Calendar",
+    Email: "jane@microsoft.com",
     Company: "CalPro",
-    PhoneNumber: "(555) 123-4567",
-    // Email: "jane@microsoft.com",
     Location: "Los Angeles",
-    Status: "Pending",
+    // PhoneNumber: "(555) 123-4567",
+    // Status: "Pending",
   },
 ];
 
-function SuppliersOrders() {
+function InventoryList() {
   const [selectedVendor, setSelectedVendor] = useState("");
   const [rowData, setRowData] = useState([]);
 
@@ -116,7 +100,7 @@ function SuppliersOrders() {
         <div className="flex-row1">
           <div className="flex-column1">
             <div className="shipments-container">
-              <h3 className="shipments-heading">Suppliers</h3>
+              <h3 className="shipments-heading">Inventory List</h3>
             </div>
             <div className="active-shipments">
               <h5 className="active-shipments-heading"> Active Suppliers </h5>
@@ -134,7 +118,7 @@ function SuppliersOrders() {
                 <option value="">Select Supplier</option>
                 {rows.map((vendor) => (
                   <option key={vendor.SupplierName} value={vendor.SupplierName}>
-                    {vendor.SupplierName}/{vendor.Location}
+                    {vendor.SupplierName}/{vendor.Material}
                   </option>
                 ))}
               </select>
@@ -157,7 +141,7 @@ function SuppliersOrders() {
             paddingTop: "3%",
             paddingLeft: "2%",
             paddingRight: "3%",
-            paddingBottom: "3%",
+            paddingBottom: "3%",   
           }}
         >
           <DataGrid rows={rowData} columns={columns} pageSize={5} />
@@ -167,4 +151,4 @@ function SuppliersOrders() {
   );
 }
 
-export default SuppliersOrders;
+export default InventoryList;
