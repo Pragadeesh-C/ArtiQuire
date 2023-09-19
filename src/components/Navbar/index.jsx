@@ -118,7 +118,7 @@ const Navbar = () => {
             >
               <MenuItem component={<Link to="/financelist" />}>List</MenuItem>
               <MenuItem component={<Link to="/financeorder" />}>
-                Orders
+                History
               </MenuItem>
             </SubMenu>
             <SubMenu

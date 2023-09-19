@@ -17,6 +17,9 @@ import LogisticsOrder from "./Screens/Logistics/logisticsorder";
 import ManufracturerList from "./Screens/Manufacturers/list";
 import InventoryList from "./Screens/Inventory/InventoryList";
 import FinanceList from "./Screens/Finance/FinanaceList";
+import FinanceHistory from "./Screens/Finance/Finance";
+import VendorOrder from "./Screens/Vendors/VendorOrder";
+import VendorList from "./Screens/Vendors/VendorList";
 
 const App = () => {
   return (
@@ -35,6 +38,11 @@ const App = () => {
         <Route path="/logisticsorders" element={<LogisticsOrder />} />
         <Route path="/inventorylist" element={<InventoryList />} />
         <Route path="/financelist" element={<FinanceList />} />
+        <Route path="/financeorder" element={<FinanceHistory />} />
+        <Route path="/vendororders" element={<VendorOrder />} />
+        <Route path="/vendorlist" element={<VendorList />} />
+
+
 
         
 
