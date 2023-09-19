@@ -39,10 +39,7 @@ const Navbar = () => {
     } else {
       setIsVisible(true);
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> dd046037cf198b6cbce4562ab8914da79edccda6
   }, [location.pathname]);
 
   return (

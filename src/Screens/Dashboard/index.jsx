@@ -7,17 +7,6 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import ManufracturerOrder from '../Manufacturers';
 
 const Dashboard = () => {
-=======
-import React, { useEffect, useState } from 'react';
-import '../../Styles/Dashboard.css';
-import Table from '../../components/Table';
-import SplineChart from '../../components/Graph';
-import { db } from '../../utils/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
-import ManufracturerOrder from '../Manufacturers';
-
-const Dashboard = () => {
->>>>>>> dd046037cf198b6cbce4562ab8914da79edccda6
   const [IsVisible, setIsVisible] = useState(true);
   const [producerData, setProducerData] = useState([]);
 
