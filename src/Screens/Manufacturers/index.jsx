@@ -1,23 +1,52 @@
-import React, { useState,useEffect  } from "react";
+import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid"; 
-import { db } from '../../utils/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
 import "../../Styles/Table.css"; 
+
 
 const columns = [
   { field: "SupplierName", headerName: "Supplier Name", flex: 1 },
-  { field: "OrderNo", headerName: "Order No", flex: 1 },
   { field: "Product", headerName: "Product", flex: 1 },
-  { field: "PhoneNumber", headerName: "PhoneNumber", flex: 1 },
+  { field: "OrderNumber", headerName: "orderNumber", flex: 1 },
   { field: "Email", headerName: "Email", flex: 1 },
   { field: "Location", headerName: "Location", flex: 1 },
-
+  {
+    field: "Status",
+    headerName: "Status",
+    flex: 1,
+    renderCell: (params) => {
+      const status = params.value;
+      let backgroundColor = "";
+      if (status === "Delivered") {
+        backgroundColor = "#00B087";
+        
+      } else if (status === "In Progress") {
+        backgroundColor = "orange";
+      } else if (status === "Pending") {
+        backgroundColor = "#DF0404";
+      }
+      return (
+        <div
+          style={{
+            backgroundColor,
+            width: "60%",
+            height: "70%",
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {status}
+        </div>
+      );
+    },
+  },
 ];
 
 const rows = [
   {
     id: 1,
-    SupplierName: "Jane Cooper",
+    SupplierName: "Jne Cooper",
     Product: "Diary",
     OrderNumber: "(225)",
     Email: "jane@microsoft.com",
@@ -44,12 +73,9 @@ const rows = [
   },
 ];
 
-
 function ManufracturerOrder() {
   const [selectedVendor, setSelectedVendor] = useState("");
   const [rowData, setRowData] = useState([]);
-  const [IsVisible, setIsVisible] = useState(true);
-  const [producerData, setProducerData] = useState([]);
 
   const addVendor = () => {
     const filteredData = rows.filter(
@@ -58,48 +84,16 @@ function ManufracturerOrder() {
     setRowData([...rowData, ...filteredData]);
   };
 
-
-    useEffect(() => {
-        if (location.pathname === '/' || location.pathname === '/register') {
-        setIsVisible(false);
-        } else {
-        setIsVisible(true);
-        }
-
-const fetchProducerData = async () => {
-      const q = query(collection(db, "UsersData"), where("role", "==", "Producer"));
-
-      try {
-        const querySnapshot = await getDocs(q);
-
-        const producerDataArray = [];
-        querySnapshot.forEach((doc) => {
-          // Generate a unique ID for each row
-          const id = doc.id; // You can use the document ID as the ID
-          const data = doc.data();
-          producerDataArray.push({ ...data, id });
-        });
-
-        setProducerData(producerDataArray);
-        console.log("Producer Data:", producerDataArray);
-      } catch (error) {
-        console.error("Error fetching producer data:", error);
-      }
-    };
-
-    fetchProducerData();
-    }, []);
-
   return (
     <div className="container">
       <div className="custom-container">
         <div className="flex-row1">
           <div className="flex-column1">
             <div className="shipments-container">
-              <h3 className="shipments-heading">Manufracturer</h3>
+              <h3 className="shipments-heading">Orders</h3>
             </div>
             <div className="active-shipments">
-              <h5 className="active-shipments-heading"> Active Manufracturers </h5>
+              <h5 className="active-shipments-heading"> Logistics Status </h5>
             </div>
           </div>
 
@@ -113,14 +107,14 @@ const fetchProducerData = async () => {
               >
                 <option value="">Select Supplier</option>
                 {rows.map((vendor) => (
-                  <option key={vendor.SupplierName} value={vendor.SupplierName}>
+                  <option key={vendor.id} value={vendor.SupplierName}>
                     {vendor.SupplierName}/{vendor.Product}
                   </option>
                 ))}
               </select>
 
               <button
-                className="custom-button"   
+                className="custom-button"
                 onClick={addVendor}
                 disabled={!selectedVendor}
               >
@@ -140,7 +134,7 @@ const fetchProducerData = async () => {
             paddingBottom: "3%",
           }}
         >
-          <DataGrid rows={rows} columns={columns} pageSize={5} />
+          <DataGrid rows={rowData} columns={columns} pageSize={5} />
         </div>
       </div>
     </div>

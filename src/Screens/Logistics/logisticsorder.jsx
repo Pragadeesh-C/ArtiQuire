@@ -25,38 +25,38 @@ const columns = [
   { field: "PhoneNumber", headerName: "PhoneNumber", flex: 1 },
   { field: "vehicleNo", headerName: "vehicleNo", flex: 1 },
   { field: "Location", headerName: "Location", flex: 1 },
-  // {
-  //   field: "Status",
-  //   headerName: "Status",
-  //   flex: 1,
-  //   renderCell: (params) => {
-  //     const status = params.value;
-  //     let backgroundColor = "";
-  //     if (status === "Delivered") {
-  //       backgroundColor = "#00B087";
+  {
+    field: "Status",
+    headerName: "Status",
+    flex: 1,
+    renderCell: (params) => {
+      const status = params.value;
+      let backgroundColor = "";
+      if (status === "Delivered") {
+        backgroundColor = "#00B087";
         
-  //     } else if (status === "In Progress") {
-  //       backgroundColor = "orange";
-  //     } else if (status === "Pending") {
-  //       backgroundColor = "#DF0404";
-  //     }
-  //     return (
-  //       <div
-  //         style={{
-  //           backgroundColor,
-  //           width: "60%",
-  //           height: "70%",
-  //           color: "white",
-  //           display: "flex",
-  //           justifyContent: "center",
-  //           alignItems: "center",
-  //         }}
-  //       >
-  //         {status}
-  //       </div>
-  //     );
-  //   },
-  // },
+      } else if (status === "In Progress") {
+        backgroundColor = "orange";
+      } else if (status === "Pending") {
+        backgroundColor = "#DF0404";
+      }
+      return (
+        <div
+          style={{
+            backgroundColor,
+            width: "60%",
+            height: "70%",
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {status}
+        </div>
+      );
+    },
+  },
 ];
 
 const rows = [
@@ -89,7 +89,7 @@ const rows = [
   },
 ];
 
-function LogisticsList() {
+function LogisticsOrder() {
   const [selectedVendor, setSelectedVendor] = useState("");
   const [rowData, setRowData] = useState([]);
 
@@ -157,4 +157,4 @@ function LogisticsList() {
   );
 }
 
-export default LogisticsList;
+export default LogisticsOrder;
