@@ -4,6 +4,8 @@ import LoginImg from "../../assets/LoginBg.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { auth } from "../../utils/firebase";
+import { signInWithEmailAndPassword } from "@firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +15,30 @@ const Login = () => {
   const [validEmail, setValidEmail] = useState(true);
   const [wrongPassword, setWrongPassword] = useState(false);
   const [noUser, setNoUser] = useState(false);
+
+  const loginAuth = async () => {
+    signInWithEmailAndPassword(auth, email, password).then(
+      (userCredentials) => {
+        if (userCredentials) {
+          navigate("/dashboard");
+        } else {
+          alert("Enter correct credentials");
+        }
+      },
+      (err) => {
+        console.log(err.code);
+        switch (err.code) {
+          case "auth/wrong-password":
+            setWrongPassword(true);
+            console.log("WRong");
+            break;
+          case "auth/user-not-found":
+            setNoUser(true);
+            break;
+        }
+      }
+    );
+  };
 
   const validateForm = () => {
     setIsCorrect(true);
@@ -28,7 +54,7 @@ const Login = () => {
       setValidEmail(false);
       return;
     }
-    signIn();
+    loginAuth();
   };
 
   return (

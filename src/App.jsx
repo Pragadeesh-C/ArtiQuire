@@ -12,6 +12,7 @@ import SuppliersOrders from "./Screens/Suppliers/orders";
 import ManufacturersList from "./Screens/Manufacturers";
 import LogisticsList from "./Screens/Logistics";
 import Register from "./Screens/Register";
+import ManufracturerOrder from "./Screens/Manufacturers";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/supplierorders" element={<SuppliersOrders />} />
         <Route path="/supplierlist" element={<SuppliersList />} />
         <Route path="/manufacturerlist" element={<ManufacturersList />} />
+        <Route path="/manufacturerorders" element={<ManufracturerOrder />} />
         <Route path="/logisticslist" element={<LogisticsList />} />
       </Routes>
     </Router>
