@@ -17,7 +17,7 @@ import { CgProfile } from "react-icons/cg";
 import "../../Styles/Navbar.css";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { HiOutlineBuildingStorefront } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const { collapseSidebar, toggleSidebar, collapsed, toggled, broken, rtl } =
@@ -33,6 +33,7 @@ const Navbar = () => {
     }
   };
   const [isVisible, setIsVisible] = useState(true);
+  const location = useLocation();
   useEffect(() => {
     if (location.pathname === "/" || location.pathname === "/register") {
       setIsVisible(false);
