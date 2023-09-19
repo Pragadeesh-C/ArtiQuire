@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./Screens/Login/Login";
 import Navbar from "./components/Navbar";
@@ -20,11 +20,64 @@ import FinanceList from "./Screens/Finance/FinanaceList";
 import FinanceHistory from "./Screens/Finance/Finance";
 import VendorOrder from "./Screens/Vendors/VendorOrder";
 import VendorList from "./Screens/Vendors/VendorList";
+import VendorNav from "./components/Navbar/VendorNav";
+import { auth, db } from "./utils/firebase";
+import {
+  query,
+  collection,
+  where,
+  getDocs,
+} from "firebase/firestore";
 
 const App = () => {
+  const [userId, setUserId] = useState(null);
+  const [userRole, setUserRole] = useState(null);
+
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       const currentUserId = user.uid;
+  //       setUserId(currentUserId);
+
+  //       const usersDataCollection = collection(db, "UsersData");
+  //       const userQuery = query(usersDataCollection, where("uid", "==", currentUserId));
+
+  //       getDocs(userQuery)
+  //         .then((querySnapshot) => {
+  //           querySnapshot.forEach((doc) => {
+  //             const userData = doc.data();
+  //             const userRole = userData.role;
+
+  //             console.log("User Role:", userRole);
+
+  //             setUserRole(userRole);
+  //           });
+  //         })
+  //         .catch((error) => {
+  //           console.log("Error fetching user role:", error);
+  //         });
+  //     } else {
+  //       setUserId(null);
+  //       setUserRole(null);
+  //     }
+  //   });
+
+  //   return () => unsubscribe();
+  // }, []);
+
+  // useEffect(() => {
+  //   if (location.pathname === "/" || location.pathname === "/register") {
+  //     setIsVisible(false);
+  //   } else {
+  //     setIsVisible(true);
+  //   }
+  // }, [location.pathname]);
+
   return (
     <Router>
+      {userRole === "vendor" ? <VendorNav /> : <Navbar />}
       <Navbar />
+      {/* <VendorNav></VendorNav> */}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -41,13 +94,6 @@ const App = () => {
         <Route path="/financeorder" element={<FinanceHistory />} />
         <Route path="/vendororders" element={<VendorOrder />} />
         <Route path="/vendorlist" element={<VendorList />} />
-
-
-
-        
-
-
-        
       </Routes>
     </Router>
   );

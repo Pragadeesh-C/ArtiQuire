@@ -5,6 +5,7 @@ import { DataGrid } from "@mui/x-data-grid";
 
 
 const columns = [
+
   { field: "BankName", headerName: "Bank Name", flex: 1 },
   { field: "AccountNo", headerName: "Account No", flex: 1 },
   { field: "AmountCredited", headerName: "Amount Credited", flex: 1 },
@@ -14,8 +15,8 @@ const columns = [
 //   { field: "Email", headerName: "Email", flex: 1 },
 //   { field: "Company", headerName: "Company", flex: 1 },
 //   { field: "Location", headerName: "Location", flex: 1 },
-
 //   { field: "PhoneNumber", headerName: "PhoneNumber", flex: 1 },
+
   {
     field: "Status",
     headerName: "Status",
