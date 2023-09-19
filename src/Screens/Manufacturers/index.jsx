@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import { DataGrid } from "@mui/x-data-grid"; 
-
+import { db } from '../../utils/firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import "../../Styles/Table.css"; 
 
 const columns = [
@@ -10,47 +11,15 @@ const columns = [
   { field: "PhoneNumber", headerName: "PhoneNumber", flex: 1 },
   { field: "Email", headerName: "Email", flex: 1 },
   { field: "Location", headerName: "Location", flex: 1 },
-  // {
-  //   field: "Status",
-  //   headerName: "Status",
-  //   flex: 1,
-  //   renderCell: (params) => {
-  //     const status = params.value;
-  //     let backgroundColor = "";
-  //     if (status === "Delivered") {
-  //       backgroundColor = "#00B087";
-        
-  //     } else if (status === "In Progress") {
-  //       backgroundColor = "orange";
-  //     } else if (status === "Pending") {
-  //       backgroundColor = "#DF0404";
-  //     }
-  //     return (
-  //       <div
-  //         style={{
-  //           backgroundColor,
-  //           width: "60%",
-  //           height: "70%",
-  //           color: "white",
-  //           display: "flex",
-  //           justifyContent: "center",
-  //           alignItems: "center",
-  //         }}
-  //       >
-  //         {status}
-  //       </div>
-  //     );
-  //   },
-  // },
+
 ];
 
 const rows = [
   {
     id: 1,
     SupplierName: "Jane Cooper",
-    OrderNo: "(225)",
     Product: "Diary",
-    PhoneNumber: "(225) 555-0118",
+    OrderNumber: "(225)",
     Email: "jane@microsoft.com",
     Location: "Jammu",
     Status: "Delivered",
@@ -58,9 +27,8 @@ const rows = [
   {
     id: 2,
     SupplierName: "John Doe",
-    OrderNo: "(123)",
     Product: "Notebook",
-    PhoneNumber: "(123) 456-7890",
+    OrderNumber: "(123)",
     Email: "jane@microsoft.com",
     Location: "New York",
     Status: "In Progress",
@@ -68,18 +36,20 @@ const rows = [
   {
     id: 3,
     SupplierName: "Alice Johnson",
-    OrderNo: "(555)",
     Product: "Calendar",
-    PhoneNumber: "(555) 123-4567",
+    OrderNumber: "(555)",
     Email: "jane@microsoft.com",
     Location: "Los Angeles",
     Status: "Pending",
   },
 ];
 
+
 function ManufracturerOrder() {
   const [selectedVendor, setSelectedVendor] = useState("");
   const [rowData, setRowData] = useState([]);
+  const [IsVisible, setIsVisible] = useState(true);
+  const [producerData, setProducerData] = useState([]);
 
   const addVendor = () => {
     const filteredData = rows.filter(
@@ -87,6 +57,38 @@ function ManufracturerOrder() {
     );
     setRowData([...rowData, ...filteredData]);
   };
+
+
+    useEffect(() => {
+        if (location.pathname === '/' || location.pathname === '/register') {
+        setIsVisible(false);
+        } else {
+        setIsVisible(true);
+        }
+
+const fetchProducerData = async () => {
+      const q = query(collection(db, "UsersData"), where("role", "==", "Producer"));
+
+      try {
+        const querySnapshot = await getDocs(q);
+
+        const producerDataArray = [];
+        querySnapshot.forEach((doc) => {
+          // Generate a unique ID for each row
+          const id = doc.id; // You can use the document ID as the ID
+          const data = doc.data();
+          producerDataArray.push({ ...data, id });
+        });
+
+        setProducerData(producerDataArray);
+        console.log("Producer Data:", producerDataArray);
+      } catch (error) {
+        console.error("Error fetching producer data:", error);
+      }
+    };
+
+    fetchProducerData();
+    }, []);
 
   return (
     <div className="container">
@@ -111,14 +113,14 @@ function ManufracturerOrder() {
               >
                 <option value="">Select Supplier</option>
                 {rows.map((vendor) => (
-                  <option key={vendor.id} value={vendor.SupplierName}>
+                  <option key={vendor.SupplierName} value={vendor.SupplierName}>
                     {vendor.SupplierName}/{vendor.Product}
                   </option>
                 ))}
               </select>
 
               <button
-                className="custom-button"
+                className="custom-button"   
                 onClick={addVendor}
                 disabled={!selectedVendor}
               >
@@ -138,7 +140,7 @@ function ManufracturerOrder() {
             paddingBottom: "3%",
           }}
         >
-          <DataGrid rows={rowData} columns={columns} pageSize={5} />
+          <DataGrid rows={rows} columns={columns} pageSize={5} />
         </div>
       </div>
     </div>

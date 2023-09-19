@@ -1,21 +1,24 @@
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5%;
+  display: "flex";
+  background: "#F8F9FE";
+  justify-content: "center";
+  align-items: "center";
+  
+
 }
 
 .custom-container {
   border: 0.5px solid black;
   border-radius: 20px;
   width: 80%;
-  height: 80%;
+  height: 650px;
   background-color: white;
-  
+
 }
 .flex-row1 {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .flex-column1 {
   display: flex;
@@ -29,33 +32,36 @@
 }
 
 .shipments-heading {
-  font-family: "Poppins";
+  font-family: "Poppins" sans-serif;
 }
 .active-shipments {
-  font-size: 16px;
+  font-size: 11px;
   color: #16C098;
   margin-left: 30%;
   width: 90px;
-  font-family: 'Poppins';
-  letter-spacing: 0.5px;
 }
 .shipments-heading {
-  font-family: "Poppins";
+  font-family: "Poppins" sans-serif;
 }
-.vendor-container {
+/* .vendor-container {
   display: flex;
   flex-direction: row;
   margin-left: 60%;
-}
+} */
 
 .vendor-label {
   margin-top: 10%;
   color: black;
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  /* margin-left: 60%; */
+  justify-content: space-between;
+  /* align-items: center; */
 }
 
 .vendor-select {
-  font-family: "Poppins";
+  font-family: "Poppins" sans-serif;
 }
 #vendorSelect {
   background-color: #f2f2f2;
@@ -64,7 +70,7 @@
   border-radius: 5px;
   width: 45%;
   /* height: 50%; */
-  font-family: "Poppins",;
+  font-family: "Poppins", sans-serif;
   font-size: 10px;
   color: #333;
 }
@@ -76,9 +82,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  height: 40px;
-  width: 50%;
-  margin-left: 10px;
+  margin-right: 40px;
 }
 
 .custom-button:disabled {
@@ -93,6 +97,6 @@
 }
 
 *table {
-  margin-left: 2%;
+  margin-left: 2%; 
   margin-top: 3%;
 }
