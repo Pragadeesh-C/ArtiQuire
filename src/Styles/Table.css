@@ -3,16 +3,17 @@
   background: "#F8F9FE";
   justify-content: "center";
   align-items: "center";
-  margin-left: 5%;
+  margin-left: 8%;  
 }
 
 .custom-container {
+  margin-top: 10%;
   border: 0.5px solid black;
   border-radius: 20px;
   width: 80%;
-  height: 650px;
+  height: 850px;
   background-color: white;
-
+  
 }
 .flex-row1 {
   display: flex;
@@ -22,6 +23,7 @@
 .flex-column1 {
   display: flex;
   flex-direction: column;
+  width: 200px;
 }
 .shipments-container {
   color: black;
@@ -54,9 +56,9 @@
   font-size: 14px;
   display: flex;
   flex-direction: row;
-  /* margin-left: 60%; */
+  
   justify-content: space-between;
-  /* align-items: center; */
+  /
 }
 
 .vendor-select {
@@ -72,6 +74,8 @@
   font-family: "Poppins", sans-serif;
   font-size: 10px;
   color: #333;
+  margin-top: 55px;
+  margin-right: 50px;
 }
 
 .custom-button {
@@ -94,8 +98,59 @@
   padding-left: 2%;
   padding-right: 3%;
 }
+/* Modal Styles */
+.custom-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  background-color: rgba(255, 255, 255, 0.85); 
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px); 
+}
 
-*table {
-  margin-left: 2%; 
-  margin-top: 3%;
+.modal-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  color: gray;
+}
+
+/* Input and Button Styles */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+button {
+  background-color: #9583FF;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
 }

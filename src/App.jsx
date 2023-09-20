@@ -1,33 +1,25 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./Screens/Login/Login";
 import Navbar from "./components/Navbar";
 import Dashboard from "./Screens/Dashboard";
-import Orders from "./Screens/Suppliers/orders";
-import Suppliers from "./Screens/Suppliers/list";
-import Logistics from "./Screens/Logistics";
-import Manufacturers from "./Screens/Manufacturers";
 import SuppliersList from "./Screens/Suppliers/list";
-import SuppliersOrders from "./Screens/Suppliers/orders";
-import ManufacturersList from "./Screens/Manufacturers";
 import LogisticsList from "./Screens/Logistics";
 import Register from "./Screens/Register";
-import ManufracturerOrder from "./Screens/Manufacturers";
 import LogisticsOrder from "./Screens/Logistics/logisticsorder";
-import ManufracturerList from "./Screens/Manufacturers/list";
 import InventoryList from "./Screens/Inventory/InventoryList";
 import FinanceList from "./Screens/Finance/FinanaceList";
 import FinanceHistory from "./Screens/Finance/Finance";
 import VendorOrder from "./Screens/Vendors/VendorOrder";
 import VendorList from "./Screens/Vendors/VendorList";
-import VendorNav from "./components/Navbar/VendorNav";
-import { auth, db } from "./utils/firebase";
-import {
-  query,
-  collection,
-  where,
-  getDocs,
-} from "firebase/firestore";
+import ManufacturerDashboard from "./Screens/Dashboard/ManufacturerDashboard";
+import SupplierDashboard from "./Screens/Dashboard/SupplierDashboard";
+import LogisticsDashboard from "./Screens/Dashboard/LogisticsDashboard";
+import VendorDashboard from "./Screens/Dashboard/VendorDashboard";
+import FinanceDashboard from "./Screens/Dashboard/FinanceDashboard";
+import ManufacturerList from "./Screens/Manufacturers/list";
+import ManufacturerOrders from "./Screens/Manufacturers";
+import SupplierOrders from "./Screens/Suppliers/orders";
 
 const App = () => {
   const [userId, setUserId] = useState(null);
@@ -75,21 +67,30 @@ const App = () => {
 
   return (
     <Router>
-      {userRole === "vendor" ? <VendorNav /> : <Navbar />}
+      {/* {userRole === "vendor" ? <VendorNav /> : <Navbar />} */}
       <Navbar />
-      {/* <VendorNav></VendorNav> */}
+      {/* <VendorNav /> */}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/supplierorders" element={<SuppliersOrders />} />
+        <Route
+          path="/manufacturerdashboard"
+          element={<ManufacturerDashboard />}
+        />
+        <Route path="/supplierdashboard" element={<SupplierDashboard />} />
+        <Route path="/logisticsdashboard" element={<LogisticsDashboard />} />
+        <Route path="/vendordashboard" element={<VendorDashboard />} />
+        <Route path="/financedashboard" element={<FinanceDashboard />} />
+        <Route path="/supplierorders" element={<SupplierOrders />} />
         <Route path="/supplierlist" element={<SuppliersList />} />
-        <Route path="/manufacturerlist" element={<ManufracturerList />} />
-        <Route path="/manufacturerorders" element={<ManufracturerOrder />} />
+        <Route path="/manufacturerlist" element={<ManufacturerList />} />
+        <Route path="/manufacturerorders" element={<ManufacturerOrders />} />
         <Route path="/logisticslist" element={<LogisticsList />} />
         <Route path="/logisticsorders" element={<LogisticsOrder />} />
         <Route path="/inventorylist" element={<InventoryList />} />
+        <Route path="/inventoryorders" element={<InventoryList />} />
         <Route path="/financelist" element={<FinanceList />} />
         <Route path="/financeorder" element={<FinanceHistory />} />
         <Route path="/vendororders" element={<VendorOrder />} />

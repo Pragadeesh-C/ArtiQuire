@@ -130,7 +130,7 @@ function FinanceList() {
               >
                 <option value="">Select Bank</option>
                 {rows.map((vendor) => (
-                  <option key={vendor.SupplierName} value={vendor.SupplierName}>
+                  <option key={vendor.id} value={vendor.SupplierName}>
                     {vendor.BankName}
                   </option>
                 ))}
