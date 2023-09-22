@@ -21,6 +21,7 @@ import ManufacturerList from "./Screens/Manufacturers/list";
 import ManufacturerOrders from "./Screens/Manufacturers";
 import SupplierOrders from "./Screens/Suppliers/orders";
 import VendorOD from "./Screens/Vendors/VendorOd";
+import VendorNav from "./components/Navbar/VendorNav";
 
 const App = () => {
   const [userId, setUserId] = useState(null);
@@ -96,6 +97,8 @@ const App = () => {
         <Route path="/financeorder" element={<FinanceHistory />} />
         <Route path="/vendororders" element={<VendorOrder />} />
         <Route path="/vendorlist" element={<VendorList />} />
+        <Route path="/vendorNav" element={<VendorNav/>} />
+
       </Routes>
     </Router>
   );

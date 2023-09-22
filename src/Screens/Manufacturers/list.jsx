@@ -34,11 +34,6 @@ function ManufacturerList() {
   };
 
   useEffect(() => {
-    if (window.location.pathname === "/" || window.location.pathname === "/register") {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
 
     fetchProducerData();
   }, []);

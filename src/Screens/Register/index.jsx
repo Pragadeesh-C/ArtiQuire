@@ -38,7 +38,7 @@ const Register = () => {
             company_no: companyNo,
           });
           console.log("Data written to", data.id);
-          navigate("/dashboard")
+          navigate("/vendorNav")
         } catch (e) {
           console.log("Error", e);
         }
@@ -98,7 +98,7 @@ const Register = () => {
           <div className="col">
             <div className="input-group">
               <p className="p" htmlFor="password">
-                Get Number:
+                Gst Number:
               </p>
               <input
                 id="password"

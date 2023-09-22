@@ -29,7 +29,7 @@ function SplineChart() {
   const [data12111, setData12111] = useState();
 
   const fetchData = async () => {
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -46,7 +46,7 @@ function SplineChart() {
         setData(resp.salesPrediction);
         setData121(resp.backOrder);
       });
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -64,7 +64,7 @@ function SplineChart() {
         setData1211(resp.backOrder)
       });
 
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -82,7 +82,7 @@ function SplineChart() {
         setData1212(resp.backOrder);
       });
 
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -100,7 +100,7 @@ function SplineChart() {
         setData1213(resp.backOrder);
       });
 
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -118,7 +118,7 @@ function SplineChart() {
         setData1214(resp.backOrder);
       });
 
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -136,7 +136,7 @@ function SplineChart() {
         setData1215(resp.backOrder);
       });
 
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -154,7 +154,7 @@ function SplineChart() {
         setData1216(resp.backOrder);
       });
 
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -172,7 +172,7 @@ function SplineChart() {
         setData1217(resp.backOrder);
       });
 
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -190,7 +190,7 @@ function SplineChart() {
         setData1218(resp.backOrder);
       });
 
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -207,7 +207,7 @@ function SplineChart() {
         setData9(resp.salesPrediction);
         setData1219(resp.backOrder);
       });
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -224,7 +224,7 @@ function SplineChart() {
         setData10(resp.salesPrediction);
         setData12110(resp.backOrder);
       });
-    await fetch("http://192.168.0.109:8080/carpets", {
+    await fetch("http://192.168.147.76:8080/carpets", {
       method: "POST",
       headers: {
         Accept: "application/json",
