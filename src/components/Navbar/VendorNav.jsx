@@ -79,12 +79,12 @@ const VendorNav = () => {
               rootStyles={{ color: "#9197B3" }}
               className="submenu"
               icon={<VscTools size={20} color="#9197B3" />}
-              label="Manufacturer"
+              label="Producer"
             >
               <MenuItem component={<Link to="/manufacturerlist" />}>
                 List
               </MenuItem>
-              <MenuItem component={<Link to="/manufacturerorders" />}>
+              <MenuItem component={<Link to="/vendorOrder" />}>
                 Orders
               </MenuItem>
             </SubMenu>

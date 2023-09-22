@@ -20,6 +20,7 @@ import FinanceDashboard from "./Screens/Dashboard/FinanceDashboard";
 import ManufacturerList from "./Screens/Manufacturers/list";
 import ManufacturerOrders from "./Screens/Manufacturers";
 import SupplierOrders from "./Screens/Suppliers/orders";
+import VendorOD from "./Screens/Vendors/VendorOd";
 
 const App = () => {
   const [userId, setUserId] = useState(null);
@@ -86,7 +87,7 @@ const App = () => {
         <Route path="/supplierorders" element={<SupplierOrders />} />
         <Route path="/supplierlist" element={<SuppliersList />} />
         <Route path="/manufacturerlist" element={<ManufacturerList />} />
-        <Route path="/manufacturerorders" element={<ManufacturerOrders />} />
+        <Route path="/vendorOrder" element={<VendorOD />} />
         <Route path="/logisticslist" element={<LogisticsList />} />
         <Route path="/logisticsorders" element={<LogisticsOrder />} />
         <Route path="/inventorylist" element={<InventoryList />} />
@@ -101,3 +102,4 @@ const App = () => {
 };
 
 export default App;
+// vendorOrder

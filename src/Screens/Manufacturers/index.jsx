@@ -16,6 +16,7 @@ function ManufacturerOrders() {
   const [selectedVendor, setSelectedVendor] = useState("");
   const [producerData, setProducerData] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
+  const [rows,setRows] = useState([])
 
   const fetchProducerData = async () => {
     const q = query(
@@ -26,7 +27,7 @@ function ManufacturerOrders() {
     try {
       const querySnapshot = await getDocs(q);
       const fetchedData = querySnapshot.docs.map((doc, index) => ({
-        id: index,
+        id: index,  
         ...doc.data(),
       }));
 
@@ -61,7 +62,7 @@ function ManufacturerOrders() {
                 value={selectedVendor}
                 onChange={(e) => setSelectedVendor(e.target.value)}
               >
-                <option value="">Select Supplier</option>
+                <option value="">Select Manufacturer</option>
                 {producerData.map((vendor) => (
                   <option key={vendor.id} value={vendor.company_name}>
                     {vendor.company_name}/{vendor.number}
@@ -71,7 +72,7 @@ function ManufacturerOrders() {
 
               <button
                 className="custom-button"
-                onClick={fetchProducerData}
+                onClick={addManufacturer}
                 disabled={!selectedVendor}
               >
                 Add Vendor
