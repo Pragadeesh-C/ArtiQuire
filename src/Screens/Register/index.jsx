@@ -38,7 +38,7 @@ const Register = () => {
             company_no: companyNo,
           });
           console.log("Data written to", data.id);
-          navigate("/vendorNav")
+          navigate("/nav")
         } catch (e) {
           console.log("Error", e);
         }
