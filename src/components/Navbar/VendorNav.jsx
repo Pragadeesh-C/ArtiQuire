@@ -71,7 +71,7 @@ const VendorNav = () => {
               rootStyles={{ color: "#9197B3" }}
               className="submenu"
               icon={<MdOutlineDashboard size={20} color="#9197B3" />}
-              component={<Link to="/dashboard" />}
+              component={<Link to="/vendordashboard" />}
             >
               Dashboard
             </MenuItem>

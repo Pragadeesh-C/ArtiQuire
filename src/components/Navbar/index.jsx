@@ -98,19 +98,7 @@ const Navbar = () => {
               <MenuItem component={<Link to="/supplierlist" />}>List</MenuItem>
               <MenuItem  component={<Link to="/supplierorders" />}>Orders</MenuItem>
             </SubMenu>
-            <SubMenu
-              rootStyles={{ color: "#9197B3" }}
-              className="submenu"
-              icon={<VscTools size={20} color="#9197B3" />}
-              label="Manufacturer"
-            >
-              <MenuItem component={<Link to="/manufacturerlist" />}>
-                List
-              </MenuItem>
-              <MenuItem component={<Link to="/manufacturerorders" />}>
-                Orders
-              </MenuItem>
-            </SubMenu>
+
             <SubMenu
               rootStyles={{ color: "#9197B3" }}
               className="submenu"
